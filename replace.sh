@@ -14,5 +14,5 @@
          new=$(echo $new | sed 's/^[ \t]*//;s/[ \t]*$//')
          printf "\"%s\" is being replaced by \"%s\" ...\n" $original $new
          #find $arg -type f | xargs sed -i "s/\b${original}\b/${new}/gi" ;
-         grep -rn "Generated file" $arg --include=*.{h,cpp} | xargs sed -i "s/\b${original}\b/${new}/gi" ;
+         grep -rwl "Generated file" $arg --include=*.{h,cpp} | xargs sed -i "s/\b${original}\b/${new}/gi" ;
  done < "$file"
